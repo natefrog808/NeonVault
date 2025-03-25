@@ -1,7 +1,7 @@
 # NeonVault Crypto
 
 ![Crates.io](https://img.shields.io/crates/v/neonvault-crypto)
-![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)
+![License](https://img.shields.io/badge/license-%2FApache--2.0-blue)
 ![Rust Version](https://img.shields.io/badge/rust-1.76%2B-orange)
 
 **NeonVault Crypto** is a quantum-resistant cryptographic library powering the NeonVault secure communication platform. Built with a cyberpunk aesthetic and the security needs of the future, this library implements the CRYSTALS-KYBER post-quantum key encapsulation mechanism standardized by NIST (FIPS 203).
