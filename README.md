@@ -1,7 +1,5 @@
 # NeonVault Crypto
 
-![NeonVault Logo](https://imgur.com/placeholder/500/300)
-![Build Status](https://img.shields.io/github/workflow/status/neonvault/neonvault-crypto/Rust%20CI/main)
 ![Crates.io](https://img.shields.io/crates/v/neonvault-crypto)
 ![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)
 ![Rust Version](https://img.shields.io/badge/rust-1.76%2B-orange)
