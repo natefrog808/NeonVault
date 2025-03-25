@@ -1,6 +1,5 @@
 # NeonVault Crypto
 
-![Crates.io](https://img.shields.io/crates/v/neonvault-crypto)
 ![License](https://img.shields.io/badge/license-%2FApache--2.0-blue)
 ![Rust Version](https://img.shields.io/badge/rust-1.76%2B-orange)
 
