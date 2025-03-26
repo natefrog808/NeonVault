@@ -1,0 +1,53 @@
+[package]
+name = "neonvault-crypto"
+version = "0.1.0"
+edition = "2021"
+authors = ["NeonVault Team"]
+description = "A quantum-resistant cryptographic library implementing CRYSTALS-KYBER"
+repository = "https://github.com/neonvault/neonvault-crypto"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["cryptography", "post-quantum", "kyber", "encryption"]
+categories = ["cryptography"]
+
+[dependencies]
+# Core dependencies
+rand = "0.8.5"
+rand_chacha = "0.3.1"
+sha2 = "0.10.6"
+sha3 = "0.10.8"
+zeroize = { version = "1.6.0", features = ["zeroize_derive"] }
+subtle = "2.5.0"
+byteorder = "1.4.3"
+chacha20poly1305 = "0.10.1"
+aes-gcm = "0.10.1"
+hkdf = "0.12.3"
+hmac = "0.12.1"
+pbkdf2 = "0.12.1"
+base64 = "0.13.0"
+lazy_static = "1.4.0"
+
+# Optional dependencies for serialization
+serde = { version = "1.0.159", features = ["derive"], optional = true }
+serde_json = { version = "1.0.95", optional = true }
+
+[dev-dependencies]
+criterion = "0.5.1"
+hex = "0.4.3"
+proptest = "1.2.0"
+
+[features]
+default = []
+serialization = ["serde", "serde_json"]
+build-info = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+strip = true
+
+[[bench]]
+name = "crypto_benchmarks"
+harness = false
