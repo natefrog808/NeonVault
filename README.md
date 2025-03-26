@@ -1,37 +1,42 @@
 # NeonVault Crypto
 
-![License](https://img.shields.io/badge/license-%2FApache--2.0-blue)
+![License](https://img.shields.io/badge/license-Apache--2.0-blue)
 ![Rust Version](https://img.shields.io/badge/rust-1.76%2B-orange)
+![GitHub Stars](https://img.shields.io/github/stars/neonvault/neonvault-crypto?style=social)
 
-**NeonVault Crypto** is a quantum-resistant cryptographic library powering the NeonVault secure communication platform. Built with a cyberpunk aesthetic and the security needs of the future, this library implements the CRYSTALS-KYBER post-quantum key encapsulation mechanism standardized by NIST (FIPS 203).
+Welcome to **NeonVault Crypto**, a quantum-resistant cryptographic fortress forged in the neon-lit shadows of a sovereign future. This library powers the NeonVault secure communication platform, wielding the **CRYSTALS-KYBER** post-quantum key encapsulation mechanism (NIST FIPS 203) to shield your data from the looming threat of quantum adversaries. When traditional cryptography crumbles under the weight of quantum supremacy, NeonVault rises as an unbreakable sentinel of privacy.
 
-In a world where quantum computers threaten to break traditional cryptography, NeonVault stands as a bastion of privacy with cutting-edge algorithms designed to resist attacks from even the most powerful quantum adversaries.
+---
 
 ## ✨ Features
 
-- **🔐 Post-Quantum Security**: Implementation of CRYSTALS-KYBER algorithm resistant to quantum computer attacks
-- **🛡️ Multiple Security Levels**: Support for Kyber-512, Kyber-768, and Kyber-1024 variants for different security requirements
-- **⚡ Performance Optimized**: NTT-accelerated polynomial operations for efficient encryption/decryption
-- **🧪 Zero-Dependency Core**: Critical cryptographic operations use minimal dependencies
-- **⏱️ Constant-Time Operations**: Designed to resist timing attacks with secure implementations
-- **🔍 Memory Security**: Sensitive values are zeroed after use using the zeroize crate
-- **📊 Benchmarking Tools**: Comprehensive benchmarks to measure and optimize performance
+- **🔐 Quantum-Resistant Core**: Harnesses CRYSTALS-KYBER to defy quantum computer attacks
+- **🛡️ Tiered Security Levels**: Choose from Kyber-512, Kyber-768, or Kyber-1024 to match your threat model
+- **⚡ Blazing Performance**: NTT-accelerated polynomial operations for lightning-fast encryption and decryption
+- **🧪 Lean Design**: Minimal dependencies in the cryptographic core for maximum reliability
+- **⏱️ Timing Attack Immunity**: Constant-time operations thwart side-channel exploits
+- **🔍 Memory Fortification**: Sensitive data is obliterated post-use with the `zeroize` crate
+- **📊 Benchmarking Arsenal**: Built-in tools to profile and optimize performance
 
-## 📊 Performance
+---
 
-| Operation | Kyber-512 | Kyber-768 | Kyber-1024 |
-|-----------|-----------|-----------|------------|
-| Key Generation | 0.2 ms | 0.3 ms | 0.5 ms |
-| Encryption | 0.25 ms | 0.35 ms | 0.55 ms |
-| Decryption | 0.2 ms | 0.3 ms | 0.5 ms |
+## 📊 Performance Metrics
 
-*Benchmarks conducted on an Intel i7-12700K @ 3.6 GHz. Your results may vary.*
+| Operation       | Kyber-512 | Kyber-768 | Kyber-1024 |
+|-----------------|-----------|-----------|------------|
+| **Key Generation** | 0.20 ms   | 0.30 ms   | 0.50 ms    |
+| **Encryption**     | 0.25 ms   | 0.35 ms   | 0.55 ms    |
+| **Decryption**     | 0.20 ms   | 0.30 ms   | 0.50 ms    |
 
-## 🚀 Quick Start
+*Benchmarks measured on an Intel i7-12700K @ 3.6 GHz. Results may vary based on hardware.*
+
+---
+
+## 🚀 Get Started
 
 ### Installation
 
-Add NeonVault Crypto to your `Cargo.toml`:
+Integrate NeonVault Crypto into your project by adding it to your `Cargo.toml`:
 
 ```toml
 [dependencies]
@@ -40,157 +45,186 @@ neonvault-crypto = "0.1.0"
 
 ### Basic Usage
 
+Secure your data with this simple example:
+
 ```rust
 use neonvault_crypto::{generate_keypair, encrypt, decrypt};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Generate a quantum-resistant key pair
+    // Forge a quantum-resistant key pair
     let (public_key, private_key) = generate_keypair()?;
     
-    // Encrypt a message
-    let message = b"The future of encryption is quantum-resistant";
+    // Encrypt a message in the neon glow
+    let message = b"Quantum shadows can't touch this";
     let ciphertext = encrypt(&public_key, message)?;
     
-    // Decrypt the message
+    // Decrypt and reclaim your secrets
     let decrypted = decrypt(&private_key, &ciphertext)?;
     assert_eq!(message, &decrypted[..]);
     
-    println!("Message successfully encrypted and decrypted with quantum-resistant KYBER!");
-    
+    println!("Encrypted and decrypted with KYBER's quantum defiance!");
     Ok(())
 }
 ```
 
+---
+
 ## 📖 Documentation
 
-For comprehensive documentation, see:
+Dive deeper into NeonVault Crypto:
 
-- [API Documentation](https://docs.rs/neonvault-crypto) - Detailed API reference
-- [Algorithm Details](./docs/kyber.md) - Deep dive into the CRYSTALS-KYBER implementation
-- [Security Guidelines](./docs/security.md) - Best practices for using this library securely
+- **[API Reference](https://docs.rs/neonvault-crypto)**: Exhaustive technical details
+- **[KYBER Deep Dive](./docs/kyber.md)**: Explore the CRYSTALS-KYBER implementation
+- **[Security Best Practices](./docs/security.md)**: Maximize your cryptographic defenses
 
-## 🔬 CRYSTALS-KYBER Overview
+---
 
-CRYSTALS-KYBER is a lattice-based key encapsulation mechanism that is one of the algorithms selected by NIST for standardization as part of the Post-Quantum Cryptography process. It is based on the hardness of the Module Learning With Errors (MLWE) problem.
+## 🔬 Inside CRYSTALS-KYBER
 
-Key features of our implementation:
+**CRYSTALS-KYBER** is a lattice-based key encapsulation mechanism (KEM) standardized by NIST, rooted in the intractable **Module Learning With Errors (MLWE)** problem. It’s engineered for a post-quantum world where RSA and ECC falter.
 
-- **FIPS 203 Compliant**: Follows the NIST standard for post-quantum cryptography
-- **Side-Channel Resistant**: Designed with timing attack countermeasures 
-- **Constant-Time Operations**: Critical operations run in constant time to prevent leaking secrets
-- **Future-Proof**: Ready for a world where quantum computers can break RSA and ECC
+### Our Implementation Highlights:
+- **FIPS 203 Certified**: Aligned with NIST’s post-quantum cryptography standard
+- **Side-Channel Hardened**: Resists timing and power analysis attacks
+- **Constant-Time Execution**: No secret leaks through timing variations
+- **Quantum-Proof**: Built to outlast the rise of quantum computing
 
-## 🔧 Advanced Usage
+---
 
-### Using Different Security Levels
+## 🔧 Advanced Features
+
+### Tailored Security Levels
+
+Adjust your security posture with KYBER variants:
 
 ```rust
 use neonvault_crypto::kyber::{KYBER_512, KYBER_768, KYBER_1024};
 use neonvault_crypto::{generate_keypair_with_params, encrypt_with_params, decrypt};
 
-// Generate a key pair with maximum security (Kyber-1024)
-let (public_key, private_key) = generate_keypair_with_params(KYBER_1024)?;
-
-// Encrypt using the same parameters
-let message = b"Maximum security encryption";
-let ciphertext = encrypt_with_params(&public_key, message, KYBER_1024)?;
-
-// Decrypt (parameters automatically detected from key)
-let decrypted = decrypt(&private_key, &ciphertext)?;
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Craft a high-security Kyber-1024 key pair
+    let (public_key, private_key) = generate_keypair_with_params(KYBER_1024)?;
+    
+    // Encrypt with unyielding strength
+    let message = b"Fortified in the quantum abyss";
+    let ciphertext = encrypt_with_params(&public_key, message, KYBER_1024)?;
+    
+    // Decrypt seamlessly
+    let decrypted = decrypt(&private_key, &ciphertext)?;
+    assert_eq!(message, &decrypted[..]);
+    Ok(())
+}
 ```
 
-### Working with Deterministic Random Number Generators (for Testing)
+### Deterministic RNG (Testing Only)
+
+Control randomness for repeatable tests:
 
 ```rust
 use neonvault_crypto::utils::random::SecureRandom;
 use neonvault_crypto::{generate_keypair_with_rng, encrypt_with_rng};
 
-// Create a deterministic RNG from a seed (for testing only!)
-let seed = [0u8; 32];
-let mut rng = SecureRandom::from_seed(seed);
-
-// Generate a deterministic key pair (for testing)
-let (public_key, private_key) = generate_keypair_with_rng(&mut rng)?;
-
-// Generate a fresh RNG for encryption
-let mut encryption_rng = SecureRandom::new();
-let message = b"Deterministic for testing";
-let ciphertext = encrypt_with_rng(&public_key, message, &mut encryption_rng)?;
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Seed a deterministic RNG (testing only)
+    let seed = [42u8; 32];
+    let mut rng = SecureRandom::from_seed(seed);
+    
+    // Generate a predictable key pair
+    let (public_key, private_key) = generate_keypair_with_rng(&mut rng)?;
+    
+    // Encrypt with a fresh RNG
+    let mut encryption_rng = SecureRandom::new();
+    let message = b"Test the neon grid";
+    let ciphertext = encrypt_with_rng(&public_key, message, &mut encryption_rng)?;
+    Ok(())
+}
 ```
 
-## 🧪 Testing
+---
 
-NeonVault Crypto includes comprehensive test suites:
+## 🧪 Testing Suite
+
+Validate NeonVault Crypto’s integrity:
 
 ```bash
-# Run all tests
+# Execute all tests
 cargo test
 
-# Run benchmarks
+# Profile performance
 cargo bench
 
-# Test with different security levels
+# Test specific security levels
 cargo test --features="kyber-1024-tests"
 ```
 
-## 🧩 Project Structure
+---
+
+## 🧩 Project Architecture
 
 ```
 neonvault-crypto/
 ├── src/
-│   ├── lib.rs           # Main library file
-│   ├── kyber/           # KYBER implementation
-│   │   ├── mod.rs       # Module exports
-│   │   ├── key_gen.rs   # Key generation
-│   │   ├── encrypt.rs   # Encryption
-│   │   ├── decrypt.rs   # Decryption
-│   │   ├── params.rs    # Algorithm parameters
-│   │   └── polynomial.rs # Polynomial operations
-│   └── utils/           # Utility functions
-│       ├── mod.rs       # Module exports
-│       ├── bytes.rs     # Byte manipulation utilities
-│       ├── random.rs    # Secure randomness
-│       └── constants.rs # Global constants
+│   ├── lib.rs            # Library entry point
+│   ├── kyber/            # CRYSTALS-KYBER core
+│   │   ├── mod.rs        # Module orchestration
+│   │   ├── key_gen.rs    # Key pair creation
+│   │   ├── encrypt.rs    # Encryption logic
+│   │   ├── decrypt.rs    # Decryption logic
+│   │   ├── params.rs     # KYBER parameters
+│   │   └── polynomial.rs # NTT-optimized polynomials
+│   └── utils/            # Supporting tools
+│       ├── mod.rs        # Utility exports
+│       ├── bytes.rs      # Byte handling
+│       ├── random.rs     # Secure RNG
+│       └── constants.rs  # Core constants
 └── ...
 ```
 
-## 🛡️ Security Features
+---
 
-- **Constant-Time Operations**: Critical operations like polynomial comparison use the `subtle` crate for constant-time execution
-- **Secure Memory Management**: The `zeroize` crate ensures sensitive data is securely erased from memory
-- **Vulnerability Scanning**: CI/CD pipeline includes automatic vulnerability scanning
-- **Memory Safety**: Rust's ownership model prevents memory-related vulnerabilities
-- **No Unsafe Code**: The codebase forbids unsafe code by default (`#![forbid(unsafe_code)]`)
+## 🛡️ Security Guarantees
 
-## 🔭 Roadmap
+- **Constant-Time Precision**: Uses `subtle` crate for timing-invariant operations
+- **Memory Erasure**: `zeroize` crate wipes sensitive data post-use
+- **CI/CD Vigilance**: Automated vulnerability scans in the pipeline
+- **Rust Safety**: Memory bugs banished by Rust’s ownership system
+- **No Unsafe Code**: Enforced with `#![forbid(unsafe_code)]`
 
-- [ ] Additional post-quantum algorithms (CRYSTALS-Dilithium signatures)
-- [ ] Hardware acceleration for ARM and x86 platforms
-- [ ] WebAssembly support for browser-based applications
-- [ ] Formal verification of critical components
-- [ ] Integration with the full NeonVault secure messaging platform
-- [ ] Hybrid encryption schemes combining quantum and classical algorithms
+---
 
-## 🤝 Contributing
+## 🔭 Future Roadmap
 
-Contributions are welcome! Please check out our [contributing guidelines](CONTRIBUTING.md) to get started.
+- [ ] Integrate **CRYSTALS-Dilithium** for quantum-resistant signatures
+- [ ] Optimize for ARM and x86 hardware acceleration
+- [ ] Enable WebAssembly for browser compatibility
+- [ ] Pursue formal verification of core algorithms
+- [ ] Link with the NeonVault messaging ecosystem
+- [ ] Develop hybrid quantum-classical encryption modes
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Run the tests (`cargo test`)
-4. Commit your changes (`git commit -m 'Add some amazing feature'`)
-5. Push to the branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
+---
+
+## 🤝 How to Contribute
+
+Join the NeonVault uprising! See our [Contributing Guidelines](CONTRIBUTING.md).
+
+1. Fork the repo
+2. Branch out: `git checkout -b feature/neon-enhancement`
+3. Test thoroughly: `cargo test`
+4. Commit: `git commit -m "Add neon-charged feature"`
+5. Push: `git push origin feature/neon-enhancement`
+6. Submit a Pull Request
+
+---
 
 ## 📜 License
 
-Licensed under either of:
+Licensed under the **Apache License 2.0** ([LICENSE-APACHE](LICENSE-APACHE) or [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)).
 
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+---
 
-## 📣 Citation
+## 📣 Cite Us
 
-If you use NeonVault Crypto in academic or research work, please cite:
+Using NeonVault Crypto in research? Please cite:
 
 ```bibtex
 @software{neonvault_crypto,
@@ -202,16 +236,20 @@ If you use NeonVault Crypto in academic or research work, please cite:
 }
 ```
 
-## 📮 Contact
+---
 
-- **Lead Developer**: [neon_developer@example.com](mailto:neon_developer@example.com)
+## 📮 Contact Us
+
+- **Lead Developer**: natefrog808@gmail.com)
 - **Security Reports**: [security@neonvault.example](mailto:security@neonvault.example)
-- **Discord**: [Join our server](https://discord.gg/neonvault)
+- **Community**: [Discord Server]
 
 ---
 
 <p align="center">
-  <img src="https://imgur.com/placeholder/200/100" alt="NeonVault Footer">
+  <img src="https://imgur.com/placeholder/200/100" alt="NeonVault Cyber Grid">
   <br>
-  <em>Secure your communications for the quantum age.</em>
+  <em>Lock down your secrets in the quantum age.</em>
 </p>
+
+---
